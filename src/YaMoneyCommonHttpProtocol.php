@@ -35,7 +35,7 @@ class YaMoneyCommonHttpProtocol {
                 $response = $this->buildResponse($this->action, $request['invoiceId'], 1);
                 $this->sendResponse($response);
             }
-        } else if ($this->settings->SECURITY_TYPE == "PKCS7") {
+        } elseif ($this->settings->SECURITY_TYPE == "PKCS7") {
             // Checking for a certificate sign. If the checking fails, respond with "200" error code.
             if (($request = $this->verifySign()) == null) {
                 $response = $this->buildResponse($this->action, null, 200);
